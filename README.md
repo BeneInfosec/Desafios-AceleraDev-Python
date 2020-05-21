@@ -1,4 +1,4 @@
-# Desafio 1 -Programa AceleraDev de Python da Codenation
+# Desafio 1 - Programa AceleraDev de Python da Codenation
 
 ## Desafio programação funcional
 
