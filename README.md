@@ -7,7 +7,7 @@ Em uma empresa de telefonia existe um software responsável pela tarifação das
 
 Tarifação:
 Diurna - entre 6h00 e 22h00 :
-    * Encargo permanente: R $ 0,36 (encargos fixos que são usados ​​para pagar o custo da conexão);
+    * Encargo permanente: R $ 0,36 (encargos fixos que são usados para pagar o custo da conexão);
     * Taxa de ligação / minuto: R $ 0,09 (não há cobrança fracionada. *A cobrança se aplica a cada ciclo concluído de 60 segundos)*.
 Noturna - entre 22h00 e 6h00:
     * Taxa permanente: R $ 0,36
@@ -20,10 +20,10 @@ records = [
     {'source': '41-885633788', 'destination': '41-886383097', 'end': 1564506121, 'start': 1564504821}
 ]
 
-Com o algoritmo apropriado, retorne uma lista contendo um dicionário com duas chaves source e total para cada número de origem, ordenado pelo maior valor. O valor total deve ser arredondado em 2 casas decimais.
+   Com o algoritmo apropriado, retorne uma lista contendo um dicionário com duas chaves source e total para cada número de origem, ordenado pelo maior valor. O valor total deve ser arredondado em 2 casas decimais.
 Observações:
 
-    O calculo deve ser feito considerando o horário de cada minuto, por exemplo, uma mesma ligação pode ter tarifas diferentes se iniciar no período diurno e for finalizada no período noturno, ou seja, cada minuto deve ser tarifado conforme o seu horário inicial.
+   O calculo deve ser feito considerando o horário de cada minuto, por exemplo, uma mesma ligação pode ter tarifas diferentes se iniciar no período diurno e for finalizada no período noturno, ou seja, cada minuto deve ser tarifado conforme o seu horário inicial.
     Para esse desafio considera apenas ligações que iniciam e terminam no mesmo dia
 
 Exemplo de retorno
