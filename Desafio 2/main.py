@@ -1,4 +1,4 @@
-import abc
+from abc import ABC, abstractmethod
 
 class Department:
     def __init__(self, name, code):
@@ -6,7 +6,7 @@ class Department:
         self.code = code
 
 
-class Employee(abc.ABC): # Para não ser acessada diretamente ela precisa ser abstrata
+class Employee(ABC): # Para não ser acessada diretamente ela precisa ser abstrata
     def __init__(self, code, name, salary):
         self.code = code
         self.name = name
@@ -14,11 +14,11 @@ class Employee(abc.ABC): # Para não ser acessada diretamente ela precisa ser ab
         self.workload = 8 # Carga horaria fixa para todos os funcionarios
 
 
-    @abc.abstractmethod #  Obrigatorio a implementação do metodo
+    @abstractmethod #  Obrigatorio a implementação do metodo
     def calc_bonus(self):
         pass
 
-    @abc.abstractmethod #  Obrigatorio a implementação do metodo
+    @abstractmethod #  Obrigatorio a implementação do metodo
     def get_hours(self):
         pass
 
@@ -42,7 +42,7 @@ class Manager(Employee):
         return self.workload
 
 
-class Seller(Manager): # Vendedor
+class Seller(Employee): # Vendedor
     def __init__(self, code, name, salary):
         super().__init__(code, name, salary)
         self.__department = Department('sellers', 2)
