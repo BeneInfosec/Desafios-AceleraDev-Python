@@ -4,8 +4,8 @@
 
 Uma pequena empresa em crescimento precisa de uma modelagem de dados dinâmica! que permita a expansão de seus usuários e departamentos, e que matenha ou melhore a segurança, padrões e boas práticas, refatore o código proposto.
 
-    Proteja a classe Employee para não ser instânciada diretamente.
-    Torne obrigatório a implementação dos métodos da classe Employee, implemente-os se for necessários.
+-  Proteja a classe Employee para não ser instânciada diretamente.
+-  Torne obrigatório a implementação dos métodos da classe Employee, implemente-os se for necessários.
     Proteja o atributo department da classe Manager para que seja acessado somente através do método get_department.
     Faça a correção dos métodos para que a herança funcione corretamente.
     Proteja o atributo sales da classe Seller para que não seja acessado diretamente, crie um método chamado get_sales para retornar o valor do atributo e put_sales para acrescentar valores a esse atributo, lembrando que as vendas são acumulativas
