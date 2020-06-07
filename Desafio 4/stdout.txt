@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.2, pytest-3.6.2, py-1.5.3, pluggy-0.6.0 -- /home/bene/codenation/python-8/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/bene/codenation/python-8, inifile:
+collecting ... collected 3 items
+
+test_submit.py::TestChallenge4::test_verify_signature PASSED             [ 33%]
+test_submit.py::TestChallenge4::test_verify_signature_fail PASSED        [ 66%]
+test_submit.py::TestChallenge4::test_create_token PASSED                 [100%]
+
+-------- generated xml file: /home/bene/codenation/python-8/output.xml ---------
+=========================== 3 passed in 0.02 seconds ===========================
