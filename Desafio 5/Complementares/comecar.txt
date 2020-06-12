@@ -1,0 +1,17 @@
+1) Começar um projeto
+django-admin startproject ecomm .
+
+2) Começando um app
+python3 manage.py startapp products
+
+3)
+python3 manage.py makemigrations
+
+4)
+#depois da modificação no tests.py
+python3 manage.py migrate
+
+
+- Criação de models
+- Montou tests
+- Fez a migração
