@@ -25,7 +25,7 @@ SECRET_KEY = '5b8w82ody!^fhhn()yt=u3&@o)#^%g83dlna5kdjs*%h@qrdbc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # Tem que alterar quando entrar em deploy
 
-ALLOWED_HOSTS = [] # Dar acesso a todos a aplicação / Coloca ['*'] para acesso a todos, ou pode coloar o IP da pessoa e DNS, efim
+ALLOWED_HOSTS = ['*'] # Dar acesso a todos a aplicação / Coloca ['*'] para acesso a todos, ou pode coloar o IP da pessoa e DNS, efim
 
 
 # Application definition

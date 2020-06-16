@@ -13,10 +13,14 @@
         1. Import the include() function: from django.urls import include, path
         2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+
+from django.urls import path
+
+from products import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('products/', include(('products.urls', 'products'), namespace='products'))
+    path('list', views.list_products, name='list'),
+    #path('create', views.create_product, name='create'),
+    #path('delete/<int:product_id>', views.delete_product, name='delete'),
+    #path('update/<int:product_id>', views.update_product, name='update')
 ]

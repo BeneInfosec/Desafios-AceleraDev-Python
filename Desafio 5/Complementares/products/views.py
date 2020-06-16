@@ -6,7 +6,8 @@ def list_products(request): #Sempre vai pegar uma request como argumento
     products =  Product.objects.all()
 
     context = { #Sempre é um dicionário
-        'products' : products
+        'products' : products,
+        'products_empty' : []
     }
 
     return render(request, 'products/list.html', context = context) # Ele reconhece a pasta template, não precisando especificar
