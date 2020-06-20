@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from products.models import Product
 from products.forms import ProductModelForm # from pasta import classe
 
@@ -16,7 +16,17 @@ def list_products(request): #Sempre vai pegar uma request como argumento
 #Ler o produto do banco de dados, e depois extrair os valoares da leitura e depois montar um template
 
 def create_product(request):
-    form = ProductModelForm()
+    if request.method == 'POST':
+        #Salvar form
+        form = ProductModelForm(request.POST)
+        if form.is_valid():
+            #True -> é valido
+            form.save()
+            return redirect('products:list') #Retorna para a lista de produtos
+    else: #Não valido
+        #Get form
+        form = ProductModelForm()
+
     context = { #Sempre é um dicionário
         'form' : form
     }

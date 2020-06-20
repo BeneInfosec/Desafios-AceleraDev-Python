@@ -1,4 +1,5 @@
 {% load static %}
+
 <html>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                       <a class="nav-link" href="" >Produtos</a>
+                       <a class="nav-link" href="{% url 'products:list' %}" >Produtos</a>
                     </li>
                 </ul>
             </div>

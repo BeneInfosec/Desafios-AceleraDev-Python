@@ -7,7 +7,7 @@
             <h2>Listagem de Produtos</h2>
         </div>
         <div class="col-md-3">
-            <a class="btn btn-primary btn-block" href=" "><i class="fa fa-plus-circle"></i> Adicionar Produto</a>
+            <a class="btn btn-primary btn-block" href="{% url 'products:create' %} "><i class="fa fa-plus-circle"></i> Adicionar Produto</a>
         </div>
         <table class="table table-striped table-bordered">
             <thead>
@@ -15,23 +15,14 @@
                     <th>Nome</th>
                     <th>Preço</th>
                     <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                {% for product in products %}    <!--{% for product in products_empty %} -->
+                {% for product in products %}
                     <tr>
-                        <td>{{ product.name|capfirst }}</td>
+                        <td>{{ product.name }}</td>
                         <td>{{ product.price }} R$</td>
                         <td>{{ product.description }}</td>
-                        <td>{{ product.category.name }}</td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href=" " class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href=" " class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </div>
-                        </td>
                     </tr>
                  {% empty %}
                     <tr>
@@ -39,9 +30,8 @@
                             Não Há produtos para serem listados
                         </td>
                     </tr>
-                <!--{% endfor %}-->
                 {% endfor %}
-            </body>
+            </tbody>
         </table>
     </div>
 {% endblock %}
