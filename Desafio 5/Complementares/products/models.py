@@ -8,6 +8,11 @@ class Category(models.Model): #Criação de alguns produtos dentro de algumas ca
     def __str__(self):
         return f'{self.name} - {self.products.count()}'
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+        
+
+
 class Product(models.Model): #Criação de um produto
     name = models.CharField('Nome', max_length=100) #max é obrigatorio
     description = models.TextField('Descrição')

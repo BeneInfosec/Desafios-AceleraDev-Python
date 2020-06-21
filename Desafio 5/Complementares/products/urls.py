@@ -21,6 +21,6 @@ from products import views # pegar os views do proprio app
 urlpatterns = [
     path('list', views.list_products, name='list'),
     path('create', views.create_product, name='create'),
-    #path('delete/<int:product_id>', views.delete_product, name='delete'),
-    #path('update/<int:product_id>', views.update_product, name='update')
+    path('delete/<int:product_id>', views.delete_product, name='delete'), #Tipo de retorno e o nome que recebeu de argumento
+    path('update/<int:product_id>', views.update_product, name='update')
 ]
