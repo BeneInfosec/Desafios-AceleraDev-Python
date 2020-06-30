@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.2, pytest-3.6.2, py-1.5.3, pluggy-0.6.0 -- /home/bene/codenation/python-9/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/bene/codenation/python-9, inifile:
+collecting ... collected 6 items
+
+test_submit.py::TestChallenge9::test_agent PASSED                        [ 16%]
+test_submit.py::TestChallenge9::test_event PASSED                        [ 33%]
+test_submit.py::TestChallenge9::test_event1 PASSED                       [ 50%]
+test_submit.py::TestChallenge9::test_group PASSED                        [ 66%]
+test_submit.py::TestChallenge9::test_user PASSED                         [ 83%]
+test_submit.py::TestChallenge9::test_user_group PASSED                   [100%]
+
+-------- generated xml file: /home/bene/codenation/python-9/output.xml ---------
+=========================== 6 passed in 0.20 seconds ===========================
