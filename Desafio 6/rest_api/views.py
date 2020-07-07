@@ -1,26 +1,56 @@
 from django.shortcuts import render
-#Classes misturadas com outras classes para dar o comportamento desejado
-from rest_framework import mixins
-
-from rest_framework import generics
 
 from rest_framework import viewsets
+from rest_framework import mixins
+from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 
-from rest_api.serializers import ProductModelsSerializer, CategoryModelSerializer
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
-from products.models import Product , Category
+from rest_api.api_permissions import OnlyAdminCanCreate
+from rest_api.serializers import (
+    ProductModelSerializer,
+    CategoryModelSerializer,
+    OrderModelSerializer
+)
+from products.models import Product, Category, Order
 
+# Create your views here.
 
 class ProductApiViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
-    serializer_class = ProductModelsSerializer
+    serializer_class = ProductModelSerializer
+
 
 class CategoryListOnlyAPIView(mixins.ListModelMixin, generics.GenericAPIView):
     queryset = Category.objects.all()
     serializer_class = CategoryModelSerializer
 
-    #vem do generics
     def get(self, request, *args, **kwargs):
-        #Poderia implementar uma validação
+        # validation
         return self.list(request, *args, **kwargs)
 
+
+class OrderAPIView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated, OnlyAdminCanCreate]
+
+    def post(self, request, pk, format=None):
+        serializer = OrderModelSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, pk, format=None):
+        if not pk:
+            orders = Order.objects.all()
+            serializer = OrderModelSerializer(orders, many=True)
+        else:
+            order = Order.objects.get(pk=pk)
+            serializer = OrderModelSerializer(order)
+
+        return Response(serializer.data)

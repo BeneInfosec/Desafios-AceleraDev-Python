@@ -21,3 +21,17 @@ class Product(models.Model): #Criação de um produto
 
     def __str__(self): #Converter para string
         return self.name
+
+
+class Order(models.Model):
+    name = models.CharField('Nome do cliente', max_length = 100)
+    payment = models.CharField('Meio Pagamento', max_length = 50)
+    products = models.ManyToManyField(Product)
+
+    #Informacional
+    @property
+    def total_amount(self):
+        return sum(product.price for product in self.products.all())
+
+    def __str__(self):
+        return f'{self.name} - {self.total_amount}'
