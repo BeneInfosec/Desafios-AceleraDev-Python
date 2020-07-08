@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.2, pytest-3.6.2, py-1.5.3, pluggy-0.6.0 -- /home/bene/codenation/python-10/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/bene/codenation/python-10, inifile:
+collecting ... collected 8 items
+
+test_submit.py::TestChallenge10::test_0 PASSED                           [ 12%]
+test_submit.py::TestChallenge10::test_01 PASSED                          [ 25%]
+test_submit.py::TestChallenge10::test_1 PASSED                           [ 37%]
+test_submit.py::TestChallenge10::test_2 PASSED                           [ 50%]
+test_submit.py::TestChallenge10::test_3 PASSED                           [ 62%]
+test_submit.py::TestChallenge10::test_4 PASSED                           [ 75%]
+test_submit.py::TestChallenge10::test_5 PASSED                           [ 87%]
+test_submit.py::TestChallenge10::test_6 PASSED                           [100%]
+
+-------- generated xml file: /home/bene/codenation/python-10/output.xml --------
+=========================== 8 passed in 0.26 seconds ===========================
