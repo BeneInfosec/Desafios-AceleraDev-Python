@@ -20,11 +20,12 @@ from products.models import Product, Category, Order
 
 # Create your views here.
 
+#Example 1
 class ProductApiViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductModelSerializer
 
-
+#Example 2
 class CategoryListOnlyAPIView(mixins.ListModelMixin, generics.GenericAPIView):
     queryset = Category.objects.all()
     serializer_class = CategoryModelSerializer
@@ -33,7 +34,7 @@ class CategoryListOnlyAPIView(mixins.ListModelMixin, generics.GenericAPIView):
         # validation
         return self.list(request, *args, **kwargs)
 
-
+#Example 3
 class OrderAPIView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated, OnlyAdminCanCreate]
