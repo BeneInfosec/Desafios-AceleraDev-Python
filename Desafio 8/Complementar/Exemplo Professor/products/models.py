@@ -11,14 +11,21 @@ class ProductManager(models.Manager):
     #Filtro simples
     def with_text(self, text: str) -> QuerySet: 
         """
-            Realiza a pesquisa nos produtos cujo nome contenha "text"
+            Realiza a pesquisa nos produtos cujo nome contenha **text**
+
+            :param text: Texto que será usado na pesquisa
+
+            :return: QuerySet com o filtro aplicado
+
         """
         queryset = self.get_queryset().filter(name__contains = text)
         return queryset
     
     def expensive_products(self) -> QuerySet:
         """
-        Realiza o filtro dos produtos cujo preço seja maior que 500 reais.
+            Realiza o filtro dos produtos cujo preço seja maior que 500 reais.
+            
+            :return: QuerySet com o filtro aplicado
         """
         #Executa a queryset com o filtro maior ou igual a 500
         return self.get_queryset().filter(price__gte=500)
@@ -26,6 +33,9 @@ class ProductManager(models.Manager):
     def cheap_toys(self) -> QuerySet:
         """
             Retorna a lista com os brinquedos mais baratos.
+        
+            :return: QuerySet com o filtro aplicado
+
         """
         return self.get_queryset().filter(
             category__name = 'Category',
@@ -35,6 +45,9 @@ class ProductManager(models.Manager):
     def toys_or_expensive_item(self) -> QuerySet:
         """
             Retorna a lista dos brinquedos mais caros
+
+            :return: QuerySet com o filtro aplicado
+
         """
         query_filter = Q(category__name = 'Category') | Q(price__gte = 500)
         queryset = self.get_queryset().filter(query_filter)
