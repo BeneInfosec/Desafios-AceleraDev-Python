@@ -1,0 +1,35 @@
+Passo a passo para fazer o deploy no heroku
+
+OBS: Esse passo a passo considera que você já tenha uma conta no Heroku e heroku cli instalado. Mais infos em heroku.com
+
+01. Instalar as dependências do Python para o projeto: pip install gunicorn whitenoise psycopg2 dj_database_url
+02. Salvar essas dependências no "requirements.txt": pip freeze > requirements.txt
+03. Rodar o comando de login do heroku: heroku login
+04. Criar o "Procfile" com o conteúdo igual ao que já esta no arquivo do projeto
+05. Fazer as configurações dos arquivos estáticos e do banco de dados igual esta no "ecomm/settings_prod.py"
+06. Criar uma nova máquina no Heroku usando o comando: heroku create nome_app
+07. Para testar a máquina criada podemos utilizar o comando: heroku open -a nome_app
+08. Inicializar o repositório git: git init
+09. Adicionar a configuração do repositório git do Heroku no repositório local: heroku git:remote -a nome_app (lbv-acelera-ecomm) 
+
+10. Adicionar o PostgreSQL a instância criada: heroku addons:create heroku-postgresql:hobby-dev -a nome_app
+addons: Criar um addon
+heroku-postgresql: É o nome do addon
+hobby-dev: tamanho
+
+11. Configurar uma variável de ambiente para indicar qual arquivo de settings devemos utilizar: heroku config:set DJANGO_SETTINGS_MODULE=ecomm.settings_prod -a nome_app
+
+config:set : Setar uma configuração, passando a confg depois
+Ou seja, o nome da variavel de ambiente == o valor dela
+
+12. Para listar as envs criadas: heroku config
+13. Fazer um push do repositório para o heroku (não esquecer de fazer os commits antes): git push heroku master
+14. Migrar o banco de dados: heroku run python manage.py migrate
+15. Caso precise, criar um super usuário para o acesso ao admin: heroku run python manage.py createsuperuser
+
+Links uteis do workshop:
+
+* https://semver.org/#spec-item-6
+* https://try.github.io/
+* https://devcenter.heroku.com/articles/heroku-cli
+* https://devcenter.heroku.com/articles/slug-compiler#ignoring-files-with-

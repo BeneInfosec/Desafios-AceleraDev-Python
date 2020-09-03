@@ -1,0 +1,4 @@
+gunicorn : web server para rodar a aplicação
+whitenoise: servir arquivos estaticos dentro da aplicação
+psycopg2: para acesso ao postgreSql/ banco gratuito no Heroku
+dj_database_url: ajudar as credenciais no banco
